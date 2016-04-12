@@ -21,9 +21,9 @@ Paperclip::Utils.get_styles(content_type, styles_if_allowed, fallback_processors
 # Usage
 ```ruby
 class Post < ActiveRecord::Base
-  has_attachment :file, 
-    styles: lambda{|x| Paperclip::Utils.get_styles(x.instance.file.content_type) }, 
-    processors: lambda{|x| Paperclip::Utils.get_processors(x.file.content_type) },
+  has_attachment :my_attachment, 
+    styles: lambda{|x| Paperclip::Utils.get_styles(x.instance.my_attachment.content_type) }, 
+    processors: lambda{|x| Paperclip::Utils.get_processors(x.my_attachment.content_type) },
     path: "public/system/:class/:attachment/:id_partition/:style/:filename",
     url: "#{ActionController::Base.relative_url_root}/system/:class/:attachment/:id_partition/:style/:filename"
 end
@@ -33,11 +33,11 @@ end
 
 # Methods
 
-**get_processors** - `Array(optional - default=[:ghostscript,:thumbnail]), Array(optional - default=[]), Array(optional - allowed content types)`
+**get_processors** - `String(file content_type), Array(optional - default=[:ghostscript,:thumbnail]), Array(optional - default=[]), Array(optional - allowed content types)`
 
-**get_styles** - `Hash(optional - default={preview: "800x600>", thumb: "100x100>"}), Hash(optional - default={}), Array(optional - allowed content types)`
+**get_styles** - `String(file content type)Hash(optional - default={preview: "800x600>", thumb: "100x100>"}), Hash(optional - default={}), Array(optional - allowed content types)`
 
-**PAPERCLIP_UTILS_ALLOWED_CONTENT_TYPES** - Default allowed content types. `['application/pdf', 'image/png', 'image/x-png', 'image/gif', 'image/jpeg', 'image/pjpeg', 'image/jpg', 'image/tif, ''image/tiff', 'image/x-tiff']`
+**ALLOWED_CONTENT_TYPES** - Default allowed content types. `['application/pdf', 'image/png', 'image/x-png', 'image/gif', 'image/jpeg', 'image/pjpeg', 'image/jpg', 'image/tif, ''image/tiff', 'image/x-tiff']`
 
 
 
