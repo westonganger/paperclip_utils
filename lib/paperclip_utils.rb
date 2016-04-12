@@ -26,7 +26,7 @@ module Paperclip
         end
       else
         if ['application/pdf','image/tiff','image/tif','image/x-tiff'].include?(content_type)
-          to_styles = {preview: ["800x600>", :png], thumb: ["100x100>", :png]}
+          to_styles = {preview: ["800x600>", :jpg], thumb: ["100x100>", :jpg]}
         else
           to_styles = {preview: "800x600>", thumb: "100x100>"}
         end
