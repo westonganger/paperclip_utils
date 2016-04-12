@@ -19,7 +19,7 @@ module Paperclip
 
     def self.get_styles(content_type, to_styles=nil, fallback_styles={}, allowed_content_types=ALLOWED_CONTENT_TYPES)
       if to_styles
-        if ['application/pdf','image/tiff','image/tif','image/x-tiff'].include?(content_type) && to_styles.any{|k,v| v.is_a?(String)}
+        if ['application/pdf','image/tiff','image/tif','image/x-tiff'].include?(content_type) && to_styles.any?{|k,v| v.is_a?(String)}
           to_styles.each do |k,v|
             to_styles[k] = [v, :png]
           end
