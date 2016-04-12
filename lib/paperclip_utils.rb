@@ -17,7 +17,7 @@ module Paperclip
       return (allowed_content_types.include?(content_type) ? processors : fallback_processors)
     end
 
-    def self.get_styles(content_type, to_styles=, fallback_styles={}, allowed_content_types=ALLOWED_CONTENT_TYPES)
+    def self.get_styles(content_type, to_styles=nil, fallback_styles={}, allowed_content_types=ALLOWED_CONTENT_TYPES)
       unless to_styles
         if ['application/pdf','image/tiff','image/tif','image/x-tiff'].include?(content_type)
           to_styles = {preview: ["800x600>", :png], thumb: ["100x100>", :png]}
