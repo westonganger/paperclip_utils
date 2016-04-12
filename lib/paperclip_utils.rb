@@ -21,7 +21,7 @@ module Paperclip
       if to_styles
         if ['application/pdf','image/tiff','image/tif','image/x-tiff'].include?(content_type) && to_styles.any?{|k,v| v.is_a?(String)}
           to_styles.each do |k,v|
-            to_styles[k] = [v, :png]
+            to_styles[k] = [v, :jpg]
           end
         end
       else
