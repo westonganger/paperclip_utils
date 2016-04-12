@@ -12,9 +12,9 @@ gem install paperclip_utils
 ```
 Paperclip Utils contains the following methods to ActiveRecord::Base:
 ```ruby
-get_paperclip_processors(content_type, processors_if_allowed, fallback_processors, allowed_content_types)
+Paperclip::Utils.get_processors(content_type, processors_if_allowed, fallback_processors, allowed_content_types)
 
-get_paperclip_styles(content_type, styles_if_allowed, fallback_processors, allowed_content_types)
+Paperclip::Utils.get_styles(content_type, styles_if_allowed, fallback_processors, allowed_content_types)
 ```
 
 
@@ -22,8 +22,8 @@ get_paperclip_styles(content_type, styles_if_allowed, fallback_processors, allow
 ```ruby
 class Post < ActiveRecord::Base
   has_attachment :file, 
-    styles: lambda{|x| x.instance.get_paperclip_styles }, 
-    processors: lambda{|x| {x.get_paperclip_processors },
+    styles: lambda{|x| Paperclip::Utils.get_styles(x.instance.file.content_type) }, 
+    processors: lambda{|x| Paperclip::Utils.get_processors(x.file.content_type) },
     path: "public/system/:class/:attachment/:id_partition/:style/:filename",
     url: "#{ActionController::Base.relative_url_root}/system/:class/:attachment/:id_partition/:style/:filename"
 end
