@@ -1,9 +1,10 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'paperclip_utils/version.rb'
 
 Gem::Specification.new do |s|
   s.name        = 'paperclip_utils'
-  s.version     =  Paperclip::Utils::VERSION
+  s.version     =  PaperclipUtils::VERSION
   s.author	= "Weston Ganger"
   s.email       = 'westonganger@gmail.com'
   s.homepage 	= 'https://github.com/westonganger/paperclip_utils'

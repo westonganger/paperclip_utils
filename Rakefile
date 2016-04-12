@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/lib/paperclip/utils.rb')
+require File.expand_path(File.dirname(__FILE__) + '/lib/paperclip/*')
 require 'bundler/gem_tasks'
 
 task :test do 
