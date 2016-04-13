@@ -1,20 +1,13 @@
 # Paperclip Utils
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=VKY8YAWAS5XRQ&lc=CA&item_name=Weston%20Ganger&item_number=paperclip_utils&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHostedGuest" target="_blank" title="Donate"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="Donate"/></a>
 
-Paperclip Utils is a helper class for easier dynamic processors and styles on your Paperclip file uploads
+Paperclip Utils is a helper class for easier dynamic processors and styles on your Paperclip file uploads. It also has a collection of custom Paperclip processors.
 
 
 # Install
 ```ruby
+# requires ruby >= 2.0
 gem install paperclip_utils
-```
-
-
-Paperclip Utils contains the following methods:
-```ruby
-Paperclip::Utils.get_processors(content_type, processors_if_allowed, fallback_processors, allowed_content_types)
-
-Paperclip::Utils.get_styles(content_type, styles_if_allowed, fallback_processors, allowed_content_types)
 ```
 
 
@@ -27,18 +20,39 @@ class Post < ActiveRecord::Base
     path: "public/system/:class/:attachment/:id_partition/:style/:filename",
     url: "#{ActionController::Base.relative_url_root}/system/:class/:attachment/:id_partition/:style/:filename"
 end
+
+# OR using any or all of the custom options
+
+class Post < ActiveRecord::Base
+  has_attachment :my_attachment, 
+    styles: lambda{|x| Paperclip::Utils.get_styles(x.instance.my_attachment.content_type, styles: {preview: "800x600>", thumb: "100x100>"}, fallback_styles: nil, allowed_content_types: ['application/pdf']) }, 
+    processors: lambda{|x| Paperclip::Utils.get_processors(x.my_attachment.content_type, processors: [:thumbnail, :some_other_custom_processor], fallback_processors: [:another_custom_processor], allowed_content_types: ['application/pdf']) },
+    path: "public/system/:class/:attachment/:id_partition/:style/:filename",
+    url: "#{ActionController::Base.relative_url_root}/system/:class/:attachment/:id_partition/:style/:filename"
+end
 ```
 
+# Methods & Options
+
+<br>
+#### `get_styles(content_type, *optional_options)`
+**styles** - Array - Default: `[:thumbnail]`
+
+**fallback_styles** - Hash - Default -`{}`
+
+**allowed_content_types** - Array - Default: `['application/pdf', 'image/png', 'image/x-png', 'image/gif', 'image/jpeg', 'image/pjpeg', 'image/jpg', 'image/tif, ''image/tiff', 'image/x-tiff']`
+
+<br>
+#### `get_processors(content_type, *optional_options)`
+**processors** - Array - Default: `[:ghostscript, :thumbnail]` - Notes: Automatically includes ghostscript processor if processors includes :thumbnail which it does by default
+
+**fallback_processors** - Array - Default: `[]`
+
+**allowed_content_types** - Array - Default: `['application/pdf', 'image/png', 'image/x-png', 'image/gif', 'image/jpeg', 'image/pjpeg', 'image/jpg', 'image/tif, ''image/tiff', 'image/x-tiff']`
 
 
-# Methods
-
-**get_processors** - `String(file content_type), Array(optional - default=[:ghostscript,:thumbnail]), Array(optional - default=[]), Array(optional - allowed content types)`
-
-**get_styles** - `String(file content type)Hash(optional - default={preview: "800x600>", thumb: "100x100>"}), Hash(optional - default={}), Array(optional - allowed content types)`
-
-**ALLOWED_CONTENT_TYPES** - Default allowed content types. `['application/pdf', 'image/png', 'image/x-png', 'image/gif', 'image/jpeg', 'image/pjpeg', 'image/jpg', 'image/tif, ''image/tiff', 'image/x-tiff']`
-
+# Custom Processors
+**Ghostscript** - `:ghostscript` - Fixes black boxes and errors thumbnail processing for PDF files. This is automatically included if processors includes :thumbnail which it does by default
 
 
 # Credits
