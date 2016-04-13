@@ -44,7 +44,7 @@ end
 # Helper Methods & Options
 
 <br>
-#### `get_styles(content_type, *optional_options)`
+##### `Paperclip::Utils.get_styles(content_type, *optional_options)`
 **styles** - Array - Default: `[:thumbnail]`
 
 **fallback_styles** - Hash - Default -`{}`
@@ -52,7 +52,7 @@ end
 **allowed_content_types** - Array - Default: `['application/pdf', 'image/png', 'image/x-png', 'image/gif', 'image/jpeg', 'image/pjpeg', 'image/jpg', 'image/tif, ''image/tiff', 'image/x-tiff']`
 
 <br>
-#### `get_processors(content_type, *optional_options)`
+##### `Paperclip::Utils.get_processors(content_type, *optional_options)`
 **processors** - Array - Default: `[:ghostscript, :thumbnail]` - Notes: Automatically includes ghostscript processor if processors includes :thumbnail which it does by default
 
 **fallback_processors** - Array - Default: `[]`
