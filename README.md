@@ -10,8 +10,17 @@ Paperclip Utils is a helper class for easier dynamic processors and styles on yo
 gem install paperclip_utils
 ```
 
+# Custom Processors
+**Ghostscript** - `:ghostscript` - Fixes black boxes and errors thumbnail processing for PDF files. This is automatically included if processors includes :thumbnail which it does by default
 
-# Usage
+**XLS to CSV** - `:xls_to_csv` - Converts XLS/XLSX files to CSV
+
+**PDF Merge** - `:pdf_merge` - A way to handle multiple pdf uploads, requires some custom wiring, must add a `pdf_files` method to your model and temporarily save files with this though.
+
+Check the processor source to see examples if required. [See all processors & examples here](https://github.com/westonganger/paperclip_utils/tree/master/lib/paperclip_processors).
+
+
+# Helper Methods Usage
 ```ruby
 class Post < ActiveRecord::Base
   has_attachment :my_attachment, 
@@ -32,7 +41,7 @@ class Post < ActiveRecord::Base
 end
 ```
 
-# Methods & Options
+# Helper Methods & Options
 
 <br>
 #### `get_styles(content_type, *optional_options)`
@@ -49,10 +58,6 @@ end
 **fallback_processors** - Array - Default: `[]`
 
 **allowed_content_types** - Array - Default: `['application/pdf', 'image/png', 'image/x-png', 'image/gif', 'image/jpeg', 'image/pjpeg', 'image/jpg', 'image/tif, ''image/tiff', 'image/x-tiff']`
-
-
-# Custom Processors
-**Ghostscript** - `:ghostscript` - Fixes black boxes and errors thumbnail processing for PDF files. This is automatically included if processors includes :thumbnail which it does by default
 
 
 # Credits
