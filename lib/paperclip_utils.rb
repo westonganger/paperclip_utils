@@ -1,5 +1,5 @@
 require 'paperclip'
-require 'paperclip_processors/ghostscript.rb'
+Dir[File.dirname(__FILE__) + '/paperclip_processors/*.rb'].each {|file| require file }
 
 module Paperclip
   class Utils
