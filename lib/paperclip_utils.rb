@@ -30,15 +30,7 @@ module Paperclip
     end
 
     def self.get_styles(content_type, styles: {preview: "800x600>", thumb: "100x100>"}, fallback_styles: {}, allowed_content_types: ALLOWED_CONTENT_TYPES)
-      if styles
-        if ['application/pdf','image/tiff','image/tif','image/x-tiff'].include?(content_type)
-          styles.each do |k,v|
-            styles[k] = [(v.is_a?(String) ? v : v[0]), :jpg]
-          end
-        end
-      else
-        styles = []
-      end
+      styles ||= []
       return (allowed_content_types.include?(content_type) ? styles : fallback_styles)
     end
 
