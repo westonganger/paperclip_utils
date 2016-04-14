@@ -45,7 +45,7 @@ end
 
 <br>
 ##### `Paperclip::Utils.get_styles(content_type, *optional_options)`
-**styles** - Array - Default: `[:thumbnail]`
+**styles** - Array - Default: `{ preview: '600x800>', thumb: '100x100>' }` - Note: Default file type for each style is .jpg for uploaded .pdf and .tif files 
 
 **fallback_styles** - Hash - Default -`{}`
 
