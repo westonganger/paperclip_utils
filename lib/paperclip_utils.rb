@@ -4,7 +4,7 @@ require 'paperclip_processors/ghostscript.rb'
 module Paperclip
   class Utils
     def self.get_processors(content_type, processors: [:thumbnail], fallback_processors: [], allowed_content_types: ALLOWED_CONTENT_TYPES)
-      if processors
+      if processors != []
         if processors.is_a?(Array)
           if processors.include?(:thumbnail) && content_type == 'application/pdf' && !processors.include?(:ghostscript)
             processors.unshift(:ghostscript)
@@ -29,8 +29,18 @@ module Paperclip
       return (allowed_content_types.include?(content_type) ? processors : fallback_processors)
     end
 
-    def self.get_styles(content_type, styles: {preview: "800x600>", thumb: "100x100>"}, fallback_styles: {}, allowed_content_types: ALLOWED_CONTENT_TYPES)
-      styles ||= []
+    def self.get_styles(content_type, styles: {preview: "600x800>", thumb: "100x100>"}, fallback_styles: {}, allowed_content_types: ALLOWED_CONTENT_TYPES)
+      if styles.is_a?(Hash)
+        if ['application/pdf','image/tiff','image/tif','image/x-tiff'].include?(content_type)
+          styles.each do |k,v|
+            if v.is_a?(String)
+              styles[k] = [v, :jpg]
+            end
+          end
+        end
+      else
+        styles = {}
+      end
       return (allowed_content_types.include?(content_type) ? styles : fallback_styles)
     end
 
