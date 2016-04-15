@@ -45,11 +45,11 @@ end
 
 <br>
 ##### `Paperclip::Utils.get_styles(content_type, *optional_options)`
-**styles** - Array - Default: `{ preview: '600x800>', thumb: '100x100>' }` - Note: Default file type for each style is .jpg for uploaded .pdf and .tif files 
-
-**fallback_styles** - Hash - Default -`{}` - These are the styles applied if the files content type is in the allowed list below.
-
-**allowed_content_types** - Array - Default: `['application/pdf', 'image/png', 'image/x-png', 'image/gif', 'image/jpeg', 'image/pjpeg', 'image/jpg', 'image/tif, ''image/tiff', 'image/x-tiff']`
+| Option | Type | Default | Notes |
+|---|:--:|:--:|---|
+| **styles** | Array| `{ preview: '600x800>'}` | Default file type for each style is .jpg for uploaded .pdf and .tif file |
+| **fallback_styles** | Hash | `{}` |  These are the styles applied if the files content type is in the allowed list below. |
+| **allowed_content_types** | Array | `['application/pdf', 'image/png', 'image/x-png', 'image/gif', 'image/jpeg', 'image/pjpeg', 'image/jpg', 'image/tif, ''image/tiff', 'image/x-tiff']` | |
 
 <br>
 ##### `Paperclip::Utils.get_processors(content_type, *optional_options)`
@@ -58,6 +58,12 @@ end
 **fallback_processors** - Array - Default: `[]` - These are the processors applied if the files content type is in the allowed list below.
 
 **allowed_content_types** - Array - Default: `['application/pdf', 'image/png', 'image/x-png', 'image/gif', 'image/jpeg', 'image/pjpeg', 'image/jpg', 'image/tif, ''image/tiff', 'image/x-tiff']`
+
+| Option | Type | Default | Notes |
+|---|:--:|:--:|---|
+| **processors** | Array| `[:ghostscript, :thumbnail]` | Automatically includes ghostscript processor if processors includes :thumbnail which it does by default |
+| **fallback_processors** | Hash | `[]` |  These are the processors applied if the files content type is in the allowed list below. |
+| **allowed_content_types** | Array | `['application/pdf', 'image/png', 'image/x-png', 'image/gif', 'image/jpeg', 'image/pjpeg', 'image/jpg', 'image/tif, ''image/tiff', 'image/x-tiff']` | |
 
 
 # Credits
