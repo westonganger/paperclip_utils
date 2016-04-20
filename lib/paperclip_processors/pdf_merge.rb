@@ -1,5 +1,5 @@
 # Merge pdf files (for transmittals)
-#https://gist.github.com/jessieay/5832466
+# https://gist.github.com/jessieay/5832466
 # Ex. http://stackoverflow.com/questions/17203270/combine-multi-page-pdfs-into-one-pdf-with-imagemagick
 #
 # First save your files to a temporary location then save your model with any arbitrary file attached which will not be saved.
