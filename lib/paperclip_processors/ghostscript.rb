@@ -13,7 +13,6 @@ module Paperclip
       @file                = file
       @format              = options[:format]
 
-      @current_format      = File.extname(@file.path)
       @basename            = File.basename(@file.path, @current_format)
     end
 
@@ -23,7 +22,7 @@ module Paperclip
       dst.binmode
 
       begin
-        if @current_format && @current_format.downcase == ".pdf"
+        if @format == :pdf
           parameters = []
           # parameters << "-dNOPAUSE -dBATCH -sDEVICE=jpeg -r144 -dUseCIEColor -dFirstPage=1 -dLastPage=1"
           # parameters << "-dFirstPage=1 -dLastPage=1"
