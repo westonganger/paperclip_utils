@@ -1,7 +1,7 @@
 require 'paperclip'
 Dir[File.dirname(__FILE__) + '/paperclip_processors/*.rb'].each {|file| require file }
 
-module PaperclipUtils
+class PaperclipUtils
   def self.get_processors(content_type, processors: [:thumbnail], fallback_processors: [], allowed_content_types: ALLOWED_CONTENT_TYPES)
     if processors != []
       if processors.is_a?(Array)
