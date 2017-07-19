@@ -1,12 +1,10 @@
 # Paperclip Utils
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=VKY8YAWAS5XRQ&lc=CA&item_name=Weston%20Ganger&item_number=paperclip_utils&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHostedGuest" target="_blank" title="Donate"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="Donate"/></a>
 
 Paperclip Utils is a helper class for easier dynamic processors and styles on your Paperclip file uploads. It also has a collection of custom Paperclip processors.
 
 
 # Install
-```ruby
-# requires ruby >= 2.0
+```
 gem install paperclip_utils
 ```
 
@@ -19,8 +17,8 @@ gem install paperclip_utils
 
 Check the processor source to see examples if required. [See all processors & examples here](https://github.com/westonganger/paperclip_utils/tree/master/lib/paperclip_processors).
 
+# Helpers Methods
 
-# Helper Methods Usage
 ```ruby
 class Post < ActiveRecord::Base
   has_attachment :my_attachment, 
@@ -41,10 +39,8 @@ class Post < ActiveRecord::Base
 end
 ```
 
-# Helper Methods & Options
+### Paperclip::Utils.get_styles(content_type, *optional_options)
 
-<br>
-#### `Paperclip::Utils.get_styles(content_type, *optional_options)`
 | Option | Type | Default | Notes |
 |---|:--:|:--:|---|
 | **styles** | Array| `{ preview: '600x800>'}` | Default file type for each style is .jpg for uploaded .pdf and .tif file |
@@ -52,7 +48,9 @@ end
 | **allowed_content_types** | Array | `['application/pdf', 'image/png', 'image/x-png', 'image/gif', 'image/jpeg', 'image/pjpeg', 'image/jpg', 'image/tif, ''image/tiff', 'image/x-tiff']` | |
 
 <br>
-#### `Paperclip::Utils.get_processors(content_type, *optional_options)`
+
+### Paperclip::Utils.get_processors(content_type, *optional_options)
+
 | Option | Type | Default | Notes |
 |---|:--:|:--:|---|
 | **processors** | Array| `[:ghostscript, :thumbnail]` | Automatically includes ghostscript processor if processors includes :thumbnail which it does by default |
@@ -61,6 +59,6 @@ end
 
 
 # Credits
-Created by Weston Ganger - @westonganger
+Created by Weston Ganger - [@westonganger](https://github.com/westonganger)
 
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=VKY8YAWAS5XRQ&lc=CA&item_name=Weston%20Ganger&item_number=paperclip_utils&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHostedGuest" target="_blank" title="Donate"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="Donate"/></a>
+<a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
