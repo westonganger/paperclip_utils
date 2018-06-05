@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = 'paperclip_utils'
   s.version     =  PaperclipUtils::VERSION
   s.author	= "Weston Ganger"
-  s.email       = 'westonganger@gmail.com'
+  s.email       = 'weston@westonganger.com'
   s.homepage 	= 'https://github.com/westonganger/paperclip_utils'
   
   s.summary     = "Helper class for easier dynamic processors and styles on your Paperclip uploads"
