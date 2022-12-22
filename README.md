@@ -1,6 +1,6 @@
 # Paperclip Utils
 <a href="https://badge.fury.io/rb/paperclip_utils" target="_blank"><img height="21" style='border:0px;height:21px;' border='0' src="https://badge.fury.io/rb/paperclip_utils.svg" alt="Gem Version"></a>
-<a href='https://rubygems.org/gems/paperclip_utils' target='_blank'><img height='21' style='border:0px;height:21px;' src='https://ruby-gem-downloads-badge.herokuapp.com/paperclip_utils?label=rubygems&type=total&total_label=downloads&color=brightgreen' border='0' alt='RubyGems Downloads' /></a>
+<a href='https://rubygems.org/gems/paperclip_utils' target='_blank'><img height='21' style='border:0px;height:21px;' src='https://img.shields.io/gem/dt/paperclip_utils?color=brightgreen&label=Rubygems%20Downloads' border='0' alt='RubyGems Downloads' /></a>
 <a href='https://ko-fi.com/A5071NK' target='_blank'><img height='22' style='border:0px;height:22px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
 
 Paperclip Utils is a helper class for easier dynamic processors and styles on your Paperclip file uploads. It also has a collection of custom Paperclip processors.
